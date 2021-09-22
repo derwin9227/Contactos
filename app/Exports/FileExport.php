@@ -15,6 +15,6 @@ class FileExport implements FromCollection
     */
     public function collection()
     {
-        return Contacto::all();
+        return Contacto::select('nombre','apellido','tlf')->get();
     }
 }
