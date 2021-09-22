@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-/* use App\Exports\FileExport; */
+use App\Exports\FileExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Contacto;
 use Illuminate\Http\Request;
 
@@ -53,8 +54,8 @@ class ContactosController extends Controller
     public function exportar(){
         return view('contacto.exportar');
     }
-    public function exportarDetalle(/* FileExport $file */){
-        /* return $file->download('archivo.csv');*/
-        return redirect()->route('index')->with('mensaje','archivo exportado');
+    public function exportarDetalle(FileExport $file){
+        return $file->download('archivo.csv');
+        /* return redirect()->route('index')->with('mensaje','archivo exportado'); */
     }
 }

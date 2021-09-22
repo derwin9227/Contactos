@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactosController;
 use App\Models\Contacto;
-/* use App\Exports\FileExport;
+use App\Exports\FileExport;
 use Maatwebsite\Excel\Excel as ExcelExcel;
-use Maatwebsite\Excel\Facades\Excel; */
+use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', [ContactosController::class, 'index'])->name('index');
 
