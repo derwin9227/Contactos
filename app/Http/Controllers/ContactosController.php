@@ -23,9 +23,9 @@ class ContactosController extends Controller
     }
     public function crear(Request $request, Contacto $contacto){
         $request->validate([
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'tlf' => 'required',
+            'nombre' => 'required|min:4|max:40',
+            'apellido' => 'required|min:4|max:40',
+            'tlf' => 'required|min:6|max:10',
         ]);
         
         $contacto->nombre = $request->nombre;
@@ -40,6 +40,11 @@ class ContactosController extends Controller
     }
     public function actualizar($id, Contacto $contacto, Request $request){
         $contacto = $contacto->findOrFail($id);
+        $request->validate([
+            'nombre' => 'required|min:4|max:40',
+            'apellido' => 'required|min:4|max:40',
+            'tlf' => 'required|min:6|max:10',
+        ]);
         $contacto->nombre = $request->nombre;
         $contacto->apellido = $request->apellido;
         $contacto->tlf = $request->tlf;
